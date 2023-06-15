@@ -5,27 +5,35 @@ import { useState } from "react";
 function App() {
   return (
     <>
-      <h1>Counter App</h1>
-      <CounterApp />
+      <h1>String Case</h1>
+      <CapLow />
     </>
   );
 }
 
-function CounterApp() {
-  // let counter = 1;
-  let [counter, setCounter] = useState(1);
+function CapLow() {
+  let [title, setCounter] = useState("Hellow world");
 
+  let LowerCaseAction = () => {
+    title = title.toLowerCase();
 
-  let likeMeAction = () => {
-    counter = counter + 1;
-  console.log("I am button click", counter) ;
+    console.log(title);
 
-    setCounter(counter);
+    setCounter(title);
+  };
+
+  let UpperCaseAction = () => {
+    title = title.toUpperCase();
+
+    console.log(title);
+
+    setCounter(title);
   };
   return (
     <>
-      <h1>{counter}</h1>
-      <input type="button" value="Like Me" onClick={likeMeAction} />
+      <h1>{title}</h1>
+      <input type="button" value="Uppercase" onClick={UpperCaseAction} />
+      <input type="button" value="Lowercase" onClick={LowerCaseAction} />
     </>
   );
 }
